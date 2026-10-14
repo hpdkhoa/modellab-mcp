@@ -1,0 +1,18 @@
+{
+ "m4a1_peo_side": {
+  "file": "M4A1-flattop.jpg",
+  "about": "an M4A1 carbine, flat-top, from its right side, the muzzle to the right",
+  "source": "https://commons.wikimedia.org/wiki/File:M4A1-flattop.jpg (PEO Soldier photo, modified by User:MathKnight-at-TAU)",
+  "license": "public domain: a work of the US Federal Government (17 USC 105)",
+  "platform": "ar15",
+  "scale": {"how": "the RIS top rail's teeth: 16 tooth edges over 15 slots of 0.394 in (MIL-STD-1913)", "edges_px": [555, 744], "slots": 15},
+  "bore_row_px": 160.5,
+  "dark_below": 170,
+  "build": {"preset": "M4A1", "params": {"stock_pos": 1, "attachments": [{"item": "flip_rear", "state": "down"}, "red_dot"]}},
+  "notes": [
+   "the stock at its second position: the photo's length, 30.6 in, is the M4's 29.75 in plus one 0.8125 in step",
+   "the optic is an M68 CCO red dot on its own mount: the red_dot attachment is the same class, not that model",
+   "the photo shows the gun's right side; the magazine is a GI aluminium 30-rounder"
+  ]
+ }
+}

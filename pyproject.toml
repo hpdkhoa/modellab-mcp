@@ -1,0 +1,36 @@
+[build-system]
+requires = ["hatchling>=1.24"]
+build-backend = "hatchling.build"
+
+[project]
+name = "modellab-mcp"
+version = "0.1.0"
+description = "An MCP server that draws game gun models in Blender from parameters, real parts at real proportions, rigged and animated, and checks each build against a photo of the real gun."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Khoa Hoang" }]
+requires-python = ">=3.10"
+keywords = ["mcp", "blender", "game-development", "3d-modeling", "procedural", "animation", "first-person"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Topic :: Games/Entertainment",
+    "Topic :: Multimedia :: Graphics :: 3D Modeling",
+]
+dependencies = ["mcp>=2.0,<3", "pillow>=10"]
+
+[project.urls]
+Homepage = "https://github.com/hpdkhoa/modellab-mcp"
+Issues = "https://github.com/hpdkhoa/modellab-mcp/issues"
+
+[project.scripts]
+modellab-mcp = "modellab_mcp.server:main"
+modellab = "modellab_mcp.__main__:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/modellab_mcp"]
+
+[tool.hatch.build.targets.sdist]
+include = ["src/modellab_mcp", "examples", "docs", "README.md", "CHANGELOG.md", "LICENSE"]
