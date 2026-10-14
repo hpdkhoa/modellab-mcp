@@ -3,7 +3,7 @@
   "name": "io.github.hpdkhoa/modellab-mcp",
   "title": "Model Lab",
   "description": "Draws rigged game gun models in Blender from parameters, checked against the real gun",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "repository": {
     "url": "https://github.com/hpdkhoa/modellab-mcp",
     "source": "github"
@@ -12,7 +12,7 @@
     {
       "registryType": "pypi",
       "identifier": "modellab-mcp",
-      "version": "0.1.0",
+      "version": "0.2.0",
       "transport": {
         "type": "stdio"
       },

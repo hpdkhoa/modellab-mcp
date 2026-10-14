@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "modellab-mcp"
-version = "0.1.0"
+version = "0.2.0"
 description = "An MCP server that draws game gun models in Blender from parameters, real parts at real proportions, rigged and animated, and checks each build against a photo of the real gun."
 readme = "README.md"
 license = "MIT"

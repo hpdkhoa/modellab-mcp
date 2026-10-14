@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.2.0 (2026-10-15)
+
+Coating slots, for Coating Lab ([coatinglab-mcp](https://github.com/hpdkhoa/coatinglab-mcp)) and any finish work.
+
+- **Finer material slots:** the upper and the lower receiver are two forgings and now two slots (`Upper`, `Lower`);
+  the barrel assembly (barrel, barrel nut, gas block, front sight base, muzzle device) is `Barrel`, apart from the
+  bolt group in `Steel`; the dust cover goes to `Steel`, the charging handle to `Detail`, as in a real rifle.
+- **`facts.json` lists each slot's shapes and triangles** (`slots`), so a coating can name what each finish covers.
+- Every preset still passes every check (selftest 114 of 114).
+
 ## 0.1.0 (2026-10-14)
 
 The first release.
