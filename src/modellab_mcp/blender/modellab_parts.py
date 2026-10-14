@@ -378,6 +378,24 @@ class Kit:
         return self.bounds(*[o.name for o in self.parts.get(bone, [])])
 
     # --- the rig --------------------------------------------------------------------------------------------------
+    def refine_slots(self, rule=None):
+        """Material slots made finer by the platform's rule (rule(shape name, slot) -> slot): the upper and the lower
+        of one receiver, the barrel apart from the bolt, so a coating can give each its own finish. Returns
+        {slot: [shape names]}, every shape that will be in the rig."""
+        out = {}
+        for obs in self.parts.values():
+            for ob in obs:
+                if not ob.data.materials:
+                    continue
+                base = ob.name.split(".")[0]
+                slot = ob.data.materials[0].name
+                new = rule(base, slot) if rule else slot
+                if new != slot and new in self.mats:
+                    ob.data.materials[0] = self.mats[new]
+                    slot = new
+                out.setdefault(slot, []).append(base)
+        return {k: sorted(set(v)) for k, v in sorted(out.items())}
+
     def rig(self, name, bones, edge_colors=None):
         """One mesh on an armature. bones: [(bone, head in gun cm, parent or None)]; a bone points back along the gun
         (Blender +Y), as the hand-made rigs do. Every vertex goes on its part's bone alone. Returns (armature, mesh)."""

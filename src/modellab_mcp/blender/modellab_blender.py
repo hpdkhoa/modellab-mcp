@@ -201,7 +201,12 @@ try:
     colors = finish_util.edge_colors
 except ImportError:
     colors = None
+slots = kit.refine_slots(getattr(plat, "slot_of", None))   # the coating slots: upper, lower, barrel apart
 arm, mesh = kit.rig("SK_%s_Rig" % NAME, bones, colors)
+slot_tris = {}
+for poly in mesh.data.polygons:
+    mname = mesh.data.materials[poly.material_index].name if mesh.data.materials else "-"
+    slot_tris[mname] = slot_tris.get(mname, 0) + 1
 if colors:
     colors(mag_ob)
 scale = float(job.get("scale", 1.0))
@@ -678,6 +683,7 @@ facts = {
     "action": "%s_Cycle" % NAME,
     "rails": m["rails"], "attachments": att_facts, "attachment_problems": att_problems, "parts": parts_report,
     "shape_bounds": shape_bounds,
+    "slots": {s: {"shapes": shapes, "triangles": slot_tris.get(s, 0)} for s, shapes in slots.items()},
     "files": {"rig": fbx, "magazine": mag_fbx, "blend": os.path.join(OUT, "%s.blend" % NAME)}, "views": shots,
 }
 json.dump(facts, open(os.path.join(OUT, "facts.json"), "w", encoding="utf-8"), indent=1)

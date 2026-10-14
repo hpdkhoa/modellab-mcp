@@ -175,6 +175,10 @@ def materials(p):
     rail_hg = p["handguard"] != "round"
     gi = p["magazine_type"] == "gi_aluminum"
     return {"Receiver": COLORS[p["receiver_color"]] + (alu,), "Furniture": COLORS[p["furniture_color"]],
+            # finer slots for coatings (slot_of): the upper and the lower are two forgings, often finished apart; the
+            # barrel assembly takes its own finish (phosphate, nitride, stainless) apart from the bolt group
+            "Upper": COLORS[p["receiver_color"]] + (alu,), "Lower": COLORS[p["receiver_color"]] + (alu,),
+            "Barrel": ((0.05, 0.05, 0.052), 0.75, 0.38, steel),
             "Handguard": COLORS[p["handguard_color"]] + ((alu,) if rail_hg else ()),
             "Magazine": COLORS[p["magazine_color"]] + ((alu,) if gi else ()),
             "Steel": ((0.05, 0.05, 0.052), 0.75, 0.38, steel), "Detail": ((0.02, 0.02, 0.022), 0.4, 0.45, steel),
@@ -183,6 +187,28 @@ def materials(p):
             # the attachments: anodized optic housings, plain glass, and the amber-red coated lens of a red dot
             "Optic": ((0.025, 0.025, 0.028), 0.15, 0.42, alu), "Glass": ((0.02, 0.03, 0.04), 0.0, 0.04, None, 0.18),
             "Lens": ((0.12, 0.035, 0.02), 0.0, 0.05, None, 0.3)}
+
+
+LOWER_SHAPES = ("Lower", "Buffer_Tube", "Castle_Nut", "End_Plate", "Trigger_Guard", "Guard", "Takedown", "Pivot",
+                "MagRelease_Fence")                   # the fences round the magazine release are the lower's forging
+BARREL_SHAPES = ("Barrel", "Muzzle", "Gas_Block", "Gas_Tube", "FSB")   # the barrel nut is steel too: the barrel's group
+STEEL_SHAPES = ("DustCover_Plate", "DustCover_Rib")  # the dust cover is a steel stamping, not the upper's aluminium
+DETAIL_SHAPES = ("Charging_Shaft",)                   # the charging handle is its own part, with its latch (Detail)
+
+
+def slot_of(name, slot):
+    """A shape's coating slot: the receiver's shapes split into the upper and the lower forging, the barrel
+    assembly out of the steel group (the bolt, pins and springs stay Steel), the parts that are other parts in a
+    real rifle (the dust cover, the charging handle) to their own group."""
+    if slot in ("Receiver", "Steel") and name.startswith(BARREL_SHAPES):
+        return "Barrel"
+    if slot == "Receiver":
+        if name.startswith(STEEL_SHAPES):
+            return "Steel"
+        if name.startswith(DETAIL_SHAPES):
+            return "Detail"
+        return "Lower" if name.startswith(LOWER_SHAPES) else "Upper"
+    return slot
 
 
 def _rail(kit, name, y0, y1, base_z, face="top", mat="Receiver", rail=None):
