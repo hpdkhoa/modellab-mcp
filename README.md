@@ -1,6 +1,18 @@
-# Model Lab
+<h1 align="center">Model Lab</h1>
 
 <!-- mcp-name: io.github.hpdkhoa/modellab-mcp -->
+
+<p align="center"><strong>Game gun models drawn in Blender from parameters, rigged and checked against the real gun.</strong></p>
+
+<p align="center">
+  <a href="LICENSE"><img alt="license: MIT" src="https://img.shields.io/badge/license-MIT-blue"></a>
+  <a href="pyproject.toml"><img alt="Python 3.10+" src="https://img.shields.io/badge/Python-3.10%2B-3776ab?logo=python&logoColor=white"></a>
+  <a href="https://pypi.org/project/modellab-mcp/"><img alt="PyPI: modellab-mcp" src="https://img.shields.io/pypi/v/modellab-mcp?label=PyPI&logo=pypi&logoColor=white&color=3775a9"></a>
+  <a href="https://registry.modelcontextprotocol.io/v0/servers?search=modellab-mcp"><img alt="MCP Registry: modellab-mcp" src="https://img.shields.io/badge/MCP%20Registry-modellab--mcp-6f42c1"></a>
+  <a href="https://www.blender.org/download/"><img alt="Blender: 4.2+" src="https://img.shields.io/badge/Blender-4.2%2B-e87d0d?logo=blender&logoColor=white"></a>
+  <a href="#the-tools"><img alt="tools: 10" src="https://img.shields.io/badge/tools-10-orange"></a>
+  <a href="#what-a-build-gives-you"><img alt="presets: 5 AR-15s" src="https://img.shields.io/badge/presets-5%20AR--15s-orange"></a>
+</p>
 
 An MCP server that draws game gun models in Blender from a few parameters. Each build has real parts at real
 proportions, one bone a moving part, its clips, and the facts a game needs. Every build checks itself, and a second
