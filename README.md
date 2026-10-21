@@ -163,6 +163,13 @@ will no sharp edge because sharp edges will hurt the hand/human, make them softe
   human-engineering source, recorded with the part.
 - The real-gun check compares these edges too.
 
+Why it matters, measured: on a digitized M1911A1 the grip safety was a square extrusion. A hand placed on the grip had
+the safety's edge 0.42 cm in its palm (the palm gives 0.27 cm). Rounding the grip parts by 0.75 mm, the least
+MIL-STD-1472G 5.7.7.6 allows, cut that to 0.09 cm past the give. Red: before (sharp). Blue: after (rounded). Below,
+close-ups of the spot before and after.
+
+![The palm's clip against the grip safety, sharp and rounded](docs/images/soft_edges_palm_evidence.jpg)
+
 ## Limits
 
 - One platform so far: the AR-15 family. Others will follow.
