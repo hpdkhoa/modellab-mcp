@@ -151,6 +151,18 @@ out of the well and seated, the bolt held until the magazine is in.
 
 ![An empty reload: the bolt held open until the new magazine is seated](docs/images/clip_reload_empty.gif)
 
+## Next: soft edges where a hand holds
+
+The owner, 2026-10-21: "the grip is no sharp edge, this will be the next improvement for Model Lab when read on the
+manual or images, make the corner round a bit, especially the places that human grab and hold, most of the time they
+will no sharp edge because sharp edges will hurt the hand/human, make them softer so hand can hold it".
+
+- Every part a hand grabs or holds gets rounded edges: the grip, the pistol grip's panels, the handguard, the
+  magazine, the charging handle, the stock's cheek and butt.
+- Each radius is read from the manual, drawing or photo when it shows one. Otherwise it comes from a named
+  human-engineering source, recorded with the part.
+- The real-gun check compares these edges too.
+
 ## Limits
 
 - One platform so far: the AR-15 family. Others will follow.
